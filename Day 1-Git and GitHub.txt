@@ -1,0 +1,106 @@
+"all about my day1 practice on git and github"
+I have learned the basic concepts and commands of Git and GitHub through hands-on practice. While I understand the fundamentals, I believe that regular practice and daily usage will help me improve my skills further.
+
+As I continue working on projects and use Git and GitHub every day, the concepts, commands, and workflows will become clearer and more natural to me. Consistent practice will help me build confidence in version control, collaboration, branching, merging, and resolving real-world development challenges.
+
+Topics Covered :- Git & GitHub Fundamentals What is Git?
+
+What is GitHub?
+
+Difference between Git and GitHub
+
+Git Workflow Overview
+
+Git Configuration
+
+Setting up username and email using git config
+
+Repository Operations
+
+Cloning a repository using git clone
+
+Checking repository status using git status
+
+Tracking and Saving Changes
+
+Adding files using git add .
+
+Creating commits using git commit
+
+Pushing changes using git push
+
+Remote Repositories
+
+Understanding origin
+
+Viewing remotes with git remote -v
+
+First push using git push -u origin main
+
+Branching
+
+What is a Branch?
+
+Renaming branch using git branch -M main
+
+Listing branches using git branch
+
+Switching branches using git checkout
+
+Creating and switching to a new branch using git checkout -b
+
+Deleting branches
+
+Merging & Collaboration
+
+Merging branches
+
+Pull Requests (PRs)
+
+Resolving Merge Conflicts
+
+Synchronization
+
+Pulling changes from remote repository using git pull
+
+Undoing Changes
+
+Reverting and resetting changes
+
+Understanding commit history
+
+Git Internals
+
+What is a Commit Hash?
+
+Importance of commit IDs
+
+Common Commands Practiced
+
+git config
+
+git clone
+
+git status
+
+git add .
+
+git commit
+
+git push
+
+git pull
+
+git branch
+
+git checkout
+
+git checkout -b
+
+git remote -v
+
+git merge
+
+git reset
+
+git log

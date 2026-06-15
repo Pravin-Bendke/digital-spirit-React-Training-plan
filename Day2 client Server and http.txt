@@ -1,0 +1,124 @@
+ Day 2 – Client-Server & HTTP Learning Summary
+
+-what is meta data?
+	-meta data means data about data.
+	-meta deta means all information about data.
+
+1. What is HTTP?
+    HTTP (HyperText Transfer Protocol) is a communication protocol used between a client and a server.
+    It transfers web pages, APIs, images, and other resources.
+    HTTP data is sent in plain text.
+
+ 2. What is HTTPS?
+    HTTPS (HyperText Transfer Protocol Secure) is the secure version of HTTP.
+    It uses SSL/TLS encryption to protect data during transmission.
+    HTTPS prevents attackers from reading sensitive information such as passwords and banking details.
+
+ 3. Request Headers
+    Request headers contain information sent from the client to the server.
+Ex:
+    Host
+    User-Agent
+    Content-Type
+    Authorization
+    Accept
+Purpose:  Tell the server about the request and client capabilities.
+
+ 4. Response Headers
+Response headers contain information sent from the server to the client.
+Content-Type
+Content-Length
+Set-Cookie
+Cache-Control
+Server
+Purpose: Provide metadata about the response.
+
+5. HTTP Methods
+Common HTTP methods:
+GET : Retrieve data
+POST : Create or submit data
+PUT : Update existing data
+PATCH : Partially update data
+DELETE : Remove data
+
+ 6. Most Common Headers
+Content-Type
+Authorization
+Accept
+Host
+Cookie
+Cache-Control
+
+7. HTTP Status Codes
+-2xx – Success
+200 OK
+201 Created
+204 No Content
+-3xx – Redirection
+301 Moved Permanently
+302 Found
+304 Not Modified
+- 4xx – Client Errors
+400 Bad Request
+401 Unauthorized
+403 Forbidden
+404 Not Found
+429 Too Many Requests
+-5xx – Server Errors
+500 Internal Server Error
+502 Bad Gateway
+503 Service Unavailable
+504 Gateway Timeout
+
+ 8. Client-Server Request Response Cycle
+1. Client sends HTTP request.
+2. Server receives and processes the request.
+3. Server prepares a response.
+4. Server sends HTTP response.
+5. Client displays the result.
+Flow-
+Client → Request → Server → Response → Client
+
+ 9. Chrome DevTools Network Tab Overview
+The Network tab helps inspect all network requests made by a website.
+Important sections:
+Name
+Status
+Method
+Headers
+Payload
+Response
+
+Uses:
+Debug APIs
+Inspect login requests
+View request payloads
+Check status codes
+ 
+ 10. Encryption and Decryption
+Encryption:
+Converts readable data (Plain Text) into unreadable data.
+Decryption:
+Converts encrypted data back into readable form.
+Purpose:  Protect sensitive information during transmission.
+
+ 11. What is Cipher Text?
+Cipher Text:
+
+Encrypted and unreadable form of data.
+Ex:
+Plain Text:  Password123
+Cipher Text:  A7X9P#K2LM
+Only authorized users with the correct key can decrypt it.
+
+ 12. What is a Port?
+A port is a logical communication endpoint used by applications and services.
+Common Ports:
+80 → HTTP
+443 → HTTPS
+22 → SSH
+21 → FTP
+25 → SMTP
+3306 → MySQL
+Purpose:  Allows multiple services to run on the same machine while using the same IP address.
+

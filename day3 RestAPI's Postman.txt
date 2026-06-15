@@ -1,0 +1,25 @@
+Day 3 Update:
+
+* Learned REST API basics and REST API standards.
+* Studied HTTP methods:
+
+  * GET – Fetch data
+  * POST – Create data
+  * PUT – Update data
+  * DELETE – Delete data
+* Learned about resources, endpoints, and URL naming conventions.
+* Installed and practiced with JSON Server.
+* Created a fake REST API using db.json.
+* Performed CRUD operations using JSON Server.
+* Learned how to fetch data using browser, Postman, and JavaScript fetch().
+* Understood Idempotent APIs and why they are important for safe retries and consistency.
+* Studied different API architectures:
+
+  * REST
+  * SOAP
+  * GraphQL
+  * gRPC
+* Practiced API testing using Postman.
+* Learned Swagger basics and the steps to create API documentation.
+* Understood Authentication (Who are you?) and Authorization (What are you allowed to do?).
+* Tested APIs using GET, POST, PUT, and DELETE requests and verified responses and status codes.

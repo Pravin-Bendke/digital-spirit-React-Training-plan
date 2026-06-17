@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task1</title>
+    <link rel="stylesheet" href="style/index.css">
+</head>
+<body>
+    <center>
+            <h1>User Data</h1>
+            <nav><a href="register.html">Add User</a></nav>
+            <input type="text" id="searchInput" placeholder="Search Name/Email" onkeyup="searchFun()">
+            <!-- <button onclick="searchFun()">Search</button> -->
+            <div id="loading">Loading...</div>
+
+                <table border="1" id="userTable">
+                    <thead>
+                         <tr>
+                        <th>Sr.No</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                    </thead>
+                        <tbody id="tabledata"></tbody>                 
+                </table>
+    </center>
+      
+    <script src="js/script.js"></script> 
+</body>
+</html>

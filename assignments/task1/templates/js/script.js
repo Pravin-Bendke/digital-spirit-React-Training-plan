@@ -5,7 +5,7 @@ async function getAllUsers(){
  try {
 
     loading.style.display ="block";
-    const response = await fetch("https://jsonplaceholder.typicode.com/users"); //getting data through api
+    const response = await fetch("http://localhost:3000/users"); //getting data through api
     const data = await response.json(); //convert data into json objet  and aslo its return promise(resolve/reject)
     console.log(data);
 
@@ -19,6 +19,10 @@ async function getAllUsers(){
             <td>${user.name}</td>
             <td>${user.email}</td>
             <td>${user.phone}</td>
+            <td>
+               <button onclick="userDelete('${user.id}')">Delete</button>
+               <button onclick="window.location.href='update.html?id=${user.id}'"> Edit </button>
+            </td>
         </tr>    
         `;
         tabledata.innerHTML +=row
@@ -40,7 +44,7 @@ getAllUsers()
             let userTable = document.getElementById("userTable");
             let tr = document.getElementById("userTable")
                     .getElementsByTagName("tr");
-
+            // let found = false;
             for(var i=0;i<tr.length;i++){
                 // console.log(tr[i]);
                 let tdName = tr[i].getElementsByTagName("td")[1];
@@ -56,28 +60,73 @@ getAllUsers()
                             tr[i].style.display="none";
                         }
                     }
+                    // document.getElementById("notFound").style.display = found ? "none" : "block" ;
             }
         } 
 
-async function createUser() {
+
+//create function
+async function createUserFun() {
+    const user = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value
+    };
+    if (user.name===""||user.email===""||user.phone===""){
+        alert("fill all fields")
+        return;
+        }    
+    const response = await fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    });
+}
+
+async function userDelete(id) {
+    // const fullTable =document.getElementById("userTable")
+    // const tr = document.getElementById("tabledata").getElementsByTagName("tr")[0].innerText
+    // console.log(tr);
+    const response = await fetch(`http://localhost:3000/users/${id}`, {
+        method: "DELETE",
+       
+    });
+    location.reload();
+    getAllUsers()
+}
+
+// delete
+// async function userDelete(id) {
+//     console.log(id);
+//     const response = await fetch(`http://localhost:3000/users/${id}`, {
+//         method: "DELETE"
+//     });
+//     location.reload()
+// }
+
+async function updateUser(id) {
+
     const user = {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         phone: document.getElementById("phone").value
     };
 
-    const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users",
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(user)
-        }
-    );
+    await fetch(`http://localhost:3000/users/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    });
 
-    const data = await response.json();
-    console.log("User Created:", data);
+    alert("User Updated Successfully");
+    window.location.href = "index.html";
 }
-
+    
+// const response = await fetch(`http://localhost:3000/users/${id}`, {
+//         method : "PUT",
+//         headers :{"Content-Type":"application/json"}
+// })

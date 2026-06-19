@@ -9,7 +9,7 @@
 <body>
     <center>
             <h1>User Data</h1>
-            <nav><a href="register.html">Add User</a></nav>
+            
             <input type="text" id="searchInput" placeholder="Search Name/Email" onkeyup="searchFun()">
             <!-- <button onclick="searchFun()">Search</button> -->
             <div id="loading">Loading...</div>
@@ -21,10 +21,15 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
+                        <th>Action</th>
+                       
                     </tr>
                     </thead>
-                        <tbody id="tabledata"></tbody>                 
+                        <tbody id="tabledata"></tbody>
                 </table>
+                <nav><a href="register.html">Add User</a></nav>
+                <!-- <p id="notFound" style="display: none;">Not Found</p>              -->
+
     </center>
       
     <script src="js/script.js"></script> 

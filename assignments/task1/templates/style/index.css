@@ -1,222 +1,172 @@
-/* ─── Reset & Base ─────────────────────────────────────── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* ===== RESET ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+/* ===== BODY ===== */
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background: #f0f4f8;
-  color: #1a202c;
-  min-height: 100vh;
-  padding: 2rem 1rem;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    padding: 24px;
 }
 
-center {
-  display: block;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* ─── Heading ───────────────────────────────────────────── */
+/* ===== HEADING ===== */
 h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1a202c;
-  letter-spacing: -0.5px;
-  margin-bottom: 0.25rem;
+    font-size: 26px;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 20px;
 }
 
-h1::after {
-  content: '';
-  display: block;
-  width: 48px;
-  height: 3px;
-  background: #4f46e5;
-  border-radius: 2px;
-  margin: 8px auto 0;
-}
-
-/* ─── Nav ───────────────────────────────────────────────── */
+/* ===== NAV / FILTER BAR ===== */
 nav {
-  margin: 1.25rem 0;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
 }
 
-nav a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #4f46e5;
-  color: #fff;
-  text-decoration: none;
-  padding: 9px 20px;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: background 0.18s, transform 0.12s;
+nav label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
 }
 
-nav a::before {
-  content: '+';
-  font-size: 1.1rem;
-  font-weight: 400;
+/* ===== SEARCH INPUT ===== */
+nav input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 14px;
+    background: #f9f9f9;
+    color: #333;
+    outline: none;
+    min-width: 220px;
 }
 
-nav a:hover {
-  background: #4338ca;
-  transform: translateY(-1px);
+nav input[type="text"]:focus {
+    border-color: #4a90d9;
+    background: #fff;
 }
 
-nav a:active {
-  transform: translateY(0);
+/* ===== FILTER DROPDOWNS ROW ===== */
+nav div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
 }
 
-/* ─── Search Input ──────────────────────────────────────── */
-#searchInput {
-  width: 100%;
-  max-width: 420px;
-  padding: 10px 16px;
-  border: 1.5px solid #cbd5e0;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  background: #fff;
-  color: #1a202c;
-  outline: none;
-  transition: border-color 0.18s, box-shadow 0.18s;
-  margin-bottom: 1.25rem;
+/* ===== SELECT DROPDOWNS ===== */
+select {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    background-color: #f9f9f9;
+    color: #333;
+    outline: none;
+    cursor: pointer;
+    min-width: 150px;
 }
 
-#searchInput::placeholder {
-  color: #a0aec0;
+select:focus {
+    border-color: #4a90d9;
+    background: #fff;
 }
 
-#searchInput:focus {
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
-}
-
-/* ─── Loading ───────────────────────────────────────────── */
+/* ===== LOADING TEXT ===== */
 #loading {
-  font-size: 0.875rem;
-  color: #718096;
-  padding: 12px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+    text-align: center;
+    font-size: 15px;
+    color: #888;
+    padding: 12px;
 }
 
-#loading::before {
-  content: '';
-  width: 16px;
-  height: 16px;
-  border: 2px solid #e2e8f0;
-  border-top-color: #4f46e5;
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-  flex-shrink: 0;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-/* ─── Table ─────────────────────────────────────────────── */
+/* ===== TABLE WRAPPER ===== */
 #userTable {
-  width: 100%;
-  border-collapse: collapse;
-  border: none;
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
-  text-align: left;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    font-size: 14px;
 }
 
-/* Remove the HTML border="1" visually */
-#userTable, #userTable th, #userTable td {
-  border: none;
-}
-
-/* Header row */
-#userTable thead tr {
-  background: #4f46e5;
+/* ===== TABLE HEADER ===== */
+#userTable thead {
+    background-color: #1a1a2e;
 }
 
 #userTable thead th {
-  padding: 13px 18px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  white-space: nowrap;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    color: #ffffff;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
-/* Body rows */
+/* ===== TABLE BODY ROWS ===== */
 #userTable tbody tr {
-  border-bottom: 1px solid #edf2f7;
-  transition: background 0.12s;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.15s;
 }
 
 #userTable tbody tr:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 #userTable tbody tr:hover {
-  background: #f5f3ff;
+    background-color: #f0f5ff;
 }
 
 #userTable tbody td {
-  padding: 12px 18px;
-  font-size: 0.9rem;
-  color: #2d3748;
+    padding: 12px 16px;
+    color: #444;
 }
 
-/* Sr.No column — subtle styling */
-#userTable tbody td:first-child {
-  color: #a0aec0;
-  font-size: 0.8rem;
-  font-weight: 500;
-  width: 60px;
+/* ===== ACTION BUTTONS ===== */
+button {
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: transparent;
+    cursor: pointer;
+    margin-right: 6px;
+    transition: background 0.15s;
 }
 
-/* Email column — colored link style */
-#userTable tbody td:nth-child(3) {
-  color: #4f46e5;
+button:hover {
+    background-color: #f0f0f0;
 }
 
-/* Phone column */
-#userTable tbody td:nth-child(4) {
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.01em;
+/* ===== ADD USER LINK ===== */
+nav a {
+    font-size: 14px;
+    font-weight: 600;
+    color: #185FA5;
+    background: #e6f1fb;
+    padding: 8px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid #b5d4f4;
+    display: inline-block;
+    margin-top: 16px;
 }
 
-/* ─── Empty / No results row ────────────────────────────── */
-#tabledata:empty::after {
-  content: 'No records found.';
-  display: table-cell;
-  padding: 32px;
-  color: #a0aec0;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-/* ─── Responsive ─────────────────────────────────────────── */
-@media (max-width: 600px) {
-  h1 { font-size: 1.5rem; }
-
-  #userTable thead th,
-  #userTable tbody td {
-    padding: 10px 12px;
-    font-size: 0.82rem;
-  }
-
-  /* Hide Sr.No on tiny screens */
-  #userTable thead th:first-child,
-  #userTable tbody td:first-child {
-    display: none;
-  }
+nav a:hover {
+    background: #d0e8f8;
 }

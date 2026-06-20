@@ -7,10 +7,7 @@
     <link rel="stylesheet" href="style/update.css">
 </head>
 <body>
-    <center>
-        <h1>Update Data</h1>
-    </center>
-    <form id="userForm" method="post">
+    <form id="userForm">
             <div>
                 <label>Full Name</label><br>
                 <input type="text" id="name" placeholder="Name" >
@@ -22,10 +19,45 @@
              <div>
                 <label>Contact Number</label><br>
                 <input type="text" id="phone" placeholder="Phone" >
-            </div><br><br>
-            <button id="updateUser" type="submit" onclick="userUpdate()">Update</button>
+            </div>
+            <div>
+                <label>State</label><br>
+                <input type="text" id="state" placeholder="State" >
+            </div><br>
+             <div>
+                <label>City</label><br>
+                <input type="text" id="city" placeholder="City" >
+            </div><br>
+            <div>
+                <label>Department</label><br>
+                    <select id="department" >
+                        <option value="">Select Department</option>
+                        <option value="IT">IT</option>
+                        <option value="HR">HR</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Marketing">Marketing</option>
+                    </select>
+            </div><br>
+            <div>
+                <label>Blood Group</label><br>
+                    <select id="bloodgroup">
+                        <option value="">Select Blood Group</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+            </div>
+            <br><br>
+            <button id="updateBtn" type="button" onclick="updateUser()">Update</button>
         </form>
+
         <a href="index.html">data</a>   
-        <script src="js/script.js"></script>
+        <script src="js/update.js"></script>
 </body>
 </html>

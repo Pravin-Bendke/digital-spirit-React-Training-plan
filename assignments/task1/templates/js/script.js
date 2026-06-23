@@ -1,65 +1,92 @@
-let userData =[];
+// let userData =[];
+// let filterDataPage =[];
+
 fetch("http://localhost:3000/users") //getting data through api
 .then(response=>response.json())
 .then(users=>{
-    userData=users
+    userData=users;
+    filterDataPage=users;
     getAllUsers(userData)
 })
+
+const recordsOnpage = 10 // numbers of user on page /rows
+let currentPage = Number(localStorage.getItem("currentPage")) || 1; //current page  
+
 
 // DISPLAY ALL USER 
 async function getAllUsers(userData){
     const loading = document.getElementById("loading")  
- try {
-    if(loading){
-        loading.style.display ="block";
-    }
-    
-    // const response = await fetch("http://localhost:3000/users"); //getting data through api
-    // const data = await response.json(); //convert data into json objet  and aslo its return promise(resolve/reject)
-    // console.log(data);
-
-    const tabledata = document.getElementById("tabledata");//its need to similar id to access
-    //we can store data in tabledata variable
-    
+    try {
+        if(loading){
+            loading.style.display ="block";
+        }
+        const tabledata = document.getElementById("tabledata");//its need to similar id to access
+        //we can store data in tabledata variable
         tabledata.innerHTML="";
-        userData.forEach(user => {//this loop we can use iterate data from data
-        const row =`
-        <tr>
-            <td>${user.id}</td>
-            <td>${user.name}</td>
-            <td>${user.email}</td>
-            <td>${user.phone}</td>
-            <td>${user.state}</td>
-            <td>${user.city}</td>
-            <td>${user.department}</td>
-            <td>${user.bloodgroup}</td>
-            <td>
-               <button onclick="userDelete('${user.id}')">Delete</button>
-               <button onclick="window.location.href='update.html?id=${user.id}'"> Edit </button>
-            </td>
-        </tr>    
-        `;
-        tabledata.innerHTML +=row // this line create duplicate rows 
-    });
-    
+        
+        //this line for data not found 
+        if(userData.length === 0){
+            tabledata.innerHTML = `
+            <tr style="height:70px;">
+                <td colspan="9"
+                    style="text-align:center; vertical-align:middle; font-size:15px; font-weight:bold;">
+                    Data Not Found
+                </td>
+            </tr>
+            `;
+            return;
+        }
+
+        const pagination = document.getElementById("pagination")
+        
+        const start = (currentPage-1)*recordsOnpage;
+        const end = start+recordsOnpage
+        
+        const PageData = userData.slice(start,end)
+            
+            
+
+            PageData.forEach(user => {//this loop we can use iterate data from data
+            const row =`
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.name}</td>
+                <td>${user.email}</td>
+                <td>${user.phone}</td>
+                <td>${user.state}</td>
+                <td>${user.city}</td>
+                <td>${user.department}</td>
+                <td>${user.bloodgroup}</td>
+                <td>
+                <button onclick="userDelete('${user.id}')">Delete</button>
+                <button onclick="window.location.href='update.html?id=${user.id}'"> Edit </button>
+                </td>
+            </tr>    
+            `;
+            tabledata.innerHTML +=row // this line create duplicate rows 
+            document.getElementById("pageNumber").textContent=currentPage
+             
+
+        });
     } catch (error) {
     console.log("Error: ",error)
     }   
     finally{
-        loading.style.display ="none"
+        loading.style.display ="none"; 
     }
 }
 getAllUsers()
 
+
+
 //SEARCH SPECIFIC USER USING NAME / EMAIL
-    const searchFun =()=>{
+const searchFun =()=>{
             let filter = document.getElementById("searchInput").value.toUpperCase();//get search bar 
             let userTable = document.getElementById("userTable");
             let tr = document.getElementById("userTable")
                     .getElementsByTagName("tr");
-            // let found = false;
-            for(var i=0;i<tr.length;i++){
-                // console.log(tr[i]);
+            
+            for(var i=0;i<tr.length;i++){  
                 let tdName = tr[i].getElementsByTagName("td")[1];
                 let tdEmail = tr[i].getElementsByTagName("td")[2];
                 if(tdName||tdEmail){
@@ -73,52 +100,69 @@ getAllUsers()
                             tr[i].style.display="none";
                         }
                     }
-                    // document.getElementById("notFound").style.display = found ? "none" : "block" ;
             }
         } 
 
 
+//filter data through Department,State,City,BloodGroup
+
 async function FilterData() {
-     
-    const department = document.getElementById("filterDept").value;
-    const state = document.getElementById("filterState").value;
-    const city = document.getElementById("filterCity").value;
-    const bloodgroup = document.getElementById("filterBloodgroup").value;
-
-    const response = await  fetch("http://localhost:3000/users");
-    const users = await response.json();
-
-    const filteredData = users.filter(user=>
-                                    (department  ==="" || user.department === department) &&
-                                    (state       ==="" || user.state === state) &&
-                                    (city        ==="" || user.city === city) &&
-                                    (bloodgroup  ==="" || user.bloodgroup === bloodgroup)
-                                );
-            console.log(filteredData);
-            getAllUsers(filteredData);             
-}
-
-// async function DisplayFilter(filteredData) {
-//     const tabledata = document.getElementById("tableData")
-//     let row="";
-//         filteredData.forEach(user => {
-//         row +=`
-//         <tr>
-//             <td>${user.id}</td>
-//             <td>${user.name}</td>
-//             <td>${user.email}</td>
-//             <td>${user.phone}</td>
-//             <td>${user.state}</td>
-//             <td>${user.city}</td>
-//             <td>${user.department}</td>
-//             <td>${user.bloodgroup}</td>
-//             <td>
-//                <button onclick="userDelete('${user.id}')">Delete</button>
-//                <button onclick="window.location.href='update.html?id=${user.id}'"> Edit </button>
-//             </td>
-//         </tr> `;
+    try {
         
+        const department = document.getElementById("filterDept").value;
+        const state = document.getElementById("filterState").value;
+        const city = document.getElementById("filterCity").value;
+        const bloodgroup = document.getElementById("filterBloodgroup").value;
 
-//         });
-//         tabledata.innerHTML=row;
-// }
+        let query =[];
+        //filter conditions
+        if(department){query.push(`department=${department}`)};
+        if(state){query.push(`state=${state}`)};
+        if(city){query.push(`city=${city}`)};
+        if(bloodgroup){query.push(`bloodgroup=${encodeURIComponent(bloodgroup)}`)};
+        
+        //Sorting code:
+
+        const sortType = document.getElementById("sortBy").value;
+
+        if(sortType){
+            query.push(`_sort=name`);
+            query.push(`_order=${sortType}`)
+        };
+        
+            let urls =query.length 
+                    ?`http://localhost:3000/users?${query.join("&")}`
+                    :`http://localhost:3000/users`
+
+                    // here we applied condition if length>1 print else empty
+            
+            const response = await  fetch(urls);
+            const users = await response.json();
+            filterDataPage=users
+                currentPage =1;
+                getAllUsers(filterDataPage);             
+    } catch (error) {
+        console.log(error);
+    }
+    }
+
+//For pegination Prev and Next :
+// Prev page
+document.getElementById("prev").addEventListener("click",function(){
+    if (currentPage>1){
+        currentPage --;
+        localStorage.setItem("currentPage", currentPage);
+        getAllUsers(filterDataPage)
+        document.getElementById("pageNumber").textContent=currentPage
+    }
+});
+//next page
+document.getElementById("next").addEventListener("click",function(){
+const totalPages = Math.ceil(filterDataPage.length/recordsOnpage)
+    if (currentPage<totalPages){
+        currentPage ++;
+        localStorage.setItem("currentPage", currentPage);
+        getAllUsers(filterDataPage);
+        document.getElementById("pageNumber").textContent=currentPage
+    }
+});

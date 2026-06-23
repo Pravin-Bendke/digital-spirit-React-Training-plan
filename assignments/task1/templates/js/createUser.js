@@ -22,4 +22,5 @@ async function createUserFun() {
         },
         body: JSON.stringify(user)
     });
+    window.location.href="index.html"
 }

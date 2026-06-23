@@ -78,13 +78,20 @@
                             <option value="O-">O-</option>
                         </select>
             </div>
+            <div>
+                <label>Sort</label>
+                <select id="sortBy" onchange="FilterData()">
+                    <option value="">Select</option>
+                    <option value="asc">A-Z</option>
+                    <option value="desc">Z-A</option>
+                </select>
+            </div>
+            <a href="register.html">Add User</a>
         </nav>
-            <!-- <button onclick="searchFun()">Search</button> -->
             <div id="loading">Loading...</div>
-
                 <table border="1" id="userTable">
-                    <thead>
-                         <tr>
+                <thead>
+                    <tr>
                         <th>Sr.No</th>
                         <th>Name</th>
                         <th>Email</th>
@@ -95,16 +102,21 @@
                         <th>Blood Group</th>
                         <th>Action</th>
                        
-                    </tr>
-                    </thead>
+                    </tr>    
+                </thead>
                         <tbody id="tabledata"></tbody>
-                </table>
-                <nav><a href="register.html">Add User</a></nav>
+                </table><br><br><br>
+                <div id="pagination">
+                    <button id="prev">Prev</button>
+                    <span id="pageNumber"></span>
+                    <button id="next">Next</button>
+                </div>
                 <!-- <p id="notFound" style="display: none;">Not Found</p>              -->
 
     </center>
       
     <script src="js/script.js"></script> 
     <script src="js/delete.js"></script>
+    <script src="js/sorting.js"></script>
 </body>
 </html>

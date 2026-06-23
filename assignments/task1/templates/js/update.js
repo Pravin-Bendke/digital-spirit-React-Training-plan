@@ -45,4 +45,4 @@ async function updateUser() {
     window.location.href="index.html"
     
 }
-    
+

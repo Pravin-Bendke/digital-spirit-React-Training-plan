@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Items</title>
+</head>
+<body>
+        <form id="productForm">
+            <div>
+                <label>Product Name</label><br>
+                <input type="text" id="productName" placeholder="Product Name" required>
+            </div>
+             <div>
+                <label>Quantity</label><br>
+                <input type="text" id="Quantity" placeholder="Quantity" required>
+            </div>
+             <div>
+                <label>Price</label><br>
+                <input type="text" id="Price" placeholder="Price" required>
+            </div><br>
+            
+            
+            <button id="addProduct" type="button" onclick="addItem()">submit</button>
+        </form>
+    
+    <script src="js/product.js"></script>
+        <script src="js/visitedPages.js"></script>
+    <script>savePageVisit("Add product Page");</script>
+</body>
+</html>

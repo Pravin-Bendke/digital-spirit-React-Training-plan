@@ -1,0 +1,11 @@
+1.​ Which storage did you use?  2.​ Why?
+    in the theame option i used session storage because session storage store temporary data so that  why i used session storage when we close tab data will be deleted in session storage but in local storage data could not delete when we close tab. 
+
+3.​ What happens after page refresh?
+"session storage :"
+    -Does not any thing change in ui when i refresh the page but when close the tab theme will be removed and again open web page light theame by default applied.
+    -i think its help maintain browser storage load.
+    
+"local storage :"
+    -in local storage data did not delete automatically its need to delete manually.
+    -if we use local storage its better for user experience when we use local storage its not need to change theame again and again so its better for user experience.

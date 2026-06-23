@@ -13,160 +13,108 @@ body {
     padding: 24px;
 }
 
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
 /* ===== HEADING ===== */
-h1 {
-    font-size: 26px;
-    font-weight: 600;
+.container h1 {
     color: #1a1a2e;
+    margin-bottom: 10px;
+}
+
+.container p {
+    color: #666;
     margin-bottom: 20px;
 }
 
-/* ===== NAV / FILTER BAR ===== */
-nav {
-    background-color: #ffffff;
+/* ===== CARDS ===== */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: #ffffff;
+    width: 300px;
+    padding: 25px;
+    border-radius: 12px;
     border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 16px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* hover */
+.card:hover {
+    border-color: #185FA5;
+    box-shadow: 0 4px 15px rgba(24, 95, 165, 0.1);
+}
+
+/* ===== CARD TEXT ===== */
+.card h2 {
+    color: #1a1a2e;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #666;
     margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    align-items: center;
 }
 
-nav label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #555;
-}
-
-/* ===== SEARCH INPUT ===== */
-nav input[type="text"] {
-    border: 1px solid #ccc;
+/* ===== LINK BUTTON ===== */
+.card a {
+    text-decoration: none;
+    background: #185FA5;
+    color: white;
+    padding: 10px 18px;
     border-radius: 8px;
-    padding: 8px 14px;
-    font-size: 14px;
-    background: #f9f9f9;
-    color: #333;
-    outline: none;
-    min-width: 220px;
+    display: inline-block;
+    border: 1px solid #185FA5;
 }
 
-nav input[type="text"]:focus {
-    border-color: #4a90d9;
-    background: #fff;
+.card a:hover {
+    background: #144d87;
 }
 
-/* ===== FILTER DROPDOWNS ROW ===== */
-nav div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-    width: 100%;
+/* ===== HISTORY ===== */
+#history {
+    margin-top: 10px;
+    padding-left: 20px;
 }
 
-/* ===== SELECT DROPDOWNS ===== */
-select {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 8px 12px;
-    font-size: 13px;
-    background-color: #f9f9f9;
-    color: #333;
-    outline: none;
-    cursor: pointer;
-    min-width: 150px;
+#history li {
+    list-style: none;
+    padding: 8px;
+    margin: 5px 0;
+    background: #f4f6f9;
+    border-left: 4px solid #185FA5;
+    border-radius: 5px;
 }
 
-select:focus {
-    border-color: #4a90d9;
-    background: #fff;
-}
-
-/* ===== LOADING TEXT ===== */
-#loading {
+/* ===== COUNTER ===== */
+#counter {
+    font-size: 48px;
     text-align: center;
-    font-size: 15px;
-    color: #888;
-    padding: 12px;
+    color: #185FA5;
+    margin: 20px 0;
+    font-weight: bold;
 }
 
-/* ===== TABLE WRAPPER ===== */
-#userTable {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #ffffff;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid #e0e0e0;
-    font-size: 14px;
-}
-
-/* ===== TABLE HEADER ===== */
-#userTable thead {
-    background-color: #1a1a2e;
-}
-
-#userTable thead th {
-    padding: 12px 16px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 13px;
-    color: #ffffff;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
-
-/* ===== TABLE BODY ROWS ===== */
-#userTable tbody tr {
-    border-bottom: 1px solid #f0f0f0;
-    transition: background 0.15s;
-}
-
-#userTable tbody tr:last-child {
-    border-bottom: none;
-}
-
-#userTable tbody tr:hover {
-    background-color: #f0f5ff;
-}
-
-#userTable tbody td {
-    padding: 12px 16px;
-    color: #444;
-}
-
-/* ===== ACTION BUTTONS ===== */
+/* ===== BUTTON ===== */
 button {
-    font-size: 12px;
-    padding: 5px 14px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    background: transparent;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid #185FA5;
+    background: #e6f1fb;
+    color: #185FA5;
     cursor: pointer;
-    margin-right: 6px;
-    transition: background 0.15s;
+    transition: 0.2s;
 }
 
 button:hover {
-    background-color: #f0f0f0;
-}
-
-/* ===== ADD USER LINK ===== */
-nav a {
-    font-size: 14px;
-    font-weight: 600;
-    color: #185FA5;
-    background: #e6f1fb;
-    padding: 8px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    border: 1px solid #b5d4f4;
-    display: inline-block;
-    margin-top: 16px;
-}
-
-nav a:hover {
-    background: #d0e8f8;
+    background: #185FA5;
+    color: #ffffff;
 }

@@ -36,7 +36,6 @@ async function getAllUsers(userData){
             `;
             return;
         }
-
         const pagination = document.getElementById("pagination")
         
         const start = (currentPage-1)*recordsOnpage;
@@ -65,8 +64,6 @@ async function getAllUsers(userData){
             `;
             tabledata.innerHTML +=row // this line create duplicate rows 
             document.getElementById("pageNumber").textContent=currentPage
-             
-
         });
     } catch (error) {
     console.log("Error: ",error)
@@ -165,4 +162,25 @@ const totalPages = Math.ceil(filterDataPage.length/recordsOnpage)
         getAllUsers(filterDataPage);
         document.getElementById("pageNumber").textContent=currentPage
     }
+});
+
+
+"Theame:"
+
+const themeSelector = document.getElementById("themeSelector");
+
+// Load saved theme when page opens
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme) {
+    document.body.className = savedTheme;
+    themeSelector.value = savedTheme;
+}
+
+// Save theme when user changes it
+themeSelector.addEventListener("change", function () {
+    const selectedTheme = this.value;
+
+    document.body.className = selectedTheme;
+    localStorage.setItem("theme", selectedTheme);
 });

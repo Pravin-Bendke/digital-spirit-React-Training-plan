@@ -6,12 +6,12 @@
     <title>User Management Dashboard</title>
     <link rel="stylesheet" href="style/index.css">
 </head>
-<body>
+<body onload="checkToken()">
 
     <div class="container">
         <h1>User Management Dashboard</h1>
         <p>Manage users, view records and add new users and Perform some Operations.</p>
-
+        <button onclick="logOut()">Logout</button>
         
         <div class="cards">
 
@@ -59,6 +59,7 @@
     <script src="js/visitedPages.js"></script>
     <script>savePageVisit("MainPage");</script>
     <script src="js/count.js"></script>
+    <script src="js/createUser.js"></script>
 
 </body>
 </html>

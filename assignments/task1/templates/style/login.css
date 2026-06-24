@@ -1,0 +1,128 @@
+/* ===== RESET ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== LOGIN FORM ===== */
+#loginForm {
+    width: 380px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== HEADING ===== */
+#loginForm h2 {
+    text-align: center;
+    color: #1a1a2e;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+/* ===== INPUTS ===== */
+#loginForm input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f9f9f9;
+    font-size: 14px;
+    outline: none;
+}
+
+#loginForm input:focus {
+    border-color: #4a90d9;
+    background: #ffffff;
+}
+
+/* ===== BUTTON ===== */
+#loginForm button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #185FA5;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+#loginForm button:hover {
+    background-color: #134d87;
+}
+
+/* ===== REGISTER LINK ===== */
+#loginForm p {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+#loginForm a {
+    color: #185FA5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#loginForm a:hover {
+    text-decoration: underline;
+}
+
+/* ===== DARK THEME ===== */
+
+body.dark {
+    background-color: #1a1a2e;
+}
+
+body.dark #loginForm {
+    background-color: #24243e;
+    border-color: #3b3b5c;
+}
+
+body.dark #loginForm h2 {
+    color: #ffffff;
+}
+
+body.dark #loginForm input {
+    background-color: #2e2e48;
+    color: #ffffff;
+    border-color: #555;
+}
+
+body.dark #loginForm input::placeholder {
+    color: #cccccc;
+}
+
+body.dark #loginForm button {
+    background-color: #185FA5;
+}
+
+body.dark #loginForm button:hover {
+    background-color: #2374c7;
+}
+
+body.dark #loginForm p {
+    color: #ffffff;
+}
+
+body.dark #loginForm a {
+    color: #7db8f0;
+}

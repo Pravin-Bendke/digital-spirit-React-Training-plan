@@ -1,3 +1,17 @@
+function checkAuth() {
+
+    const token =
+        localStorage.getItem("token");
+
+    if (!token) {
+        window.location.href =
+            "login.html";
+            alert("log in first and then access this page")
+    }
+}
+checkAuth()
+
+
 async function loadData() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");

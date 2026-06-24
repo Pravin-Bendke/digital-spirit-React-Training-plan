@@ -1,4 +1,15 @@
+function checkAuth() {
 
+    const token =
+        localStorage.getItem("token");
+
+    if (!token) {
+        window.location.href =
+            "login.html";
+            alert("log in first and then access this page")
+    }
+}
+checkAuth()
 //Add Product Data :
 async function addItem() {
     

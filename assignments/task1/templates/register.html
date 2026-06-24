@@ -30,6 +30,14 @@
                 <input type="text" id="city" placeholder="City" required>
             </div><br>
             <div>
+                <label>Password</label><br>
+                <input type="password" id="password1" placeholder="Enter Password" required>
+            </div><br>
+            <div>
+                <label>Comfirm Password</label><br>
+                <input type="password" id="password2" placeholder="Enter Comfirm Password" required>
+            </div><br>
+            <div>
                 <label>Department</label><br>
                     <select id="department" required>
                         <option value="">Select Department</option>
@@ -56,9 +64,7 @@
             </div><br>
             <br><br>
             <button id="createUser" type="button" onclick="createUserFun()">submit</button>
-        </form>
-    
-    <a href="operation.html">data</a>    
+        </form>  
     <script src="js/createUser.js"></script>
     <script src="js/visitedPages.js"></script>
     <script>savePageVisit("Add User Page");</script>

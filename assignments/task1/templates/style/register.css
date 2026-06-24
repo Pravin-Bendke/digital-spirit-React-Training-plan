@@ -29,7 +29,7 @@ body {
 
 /* ─── Form Title ─────────────────────────────────────────── */
 #userForm::before {
-  content: 'Add New User';
+  content: 'Registration Form';
   display: block;
   font-size: 1.5rem;
   font-weight: 700;

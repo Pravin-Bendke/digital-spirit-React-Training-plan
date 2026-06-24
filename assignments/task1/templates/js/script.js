@@ -1,3 +1,16 @@
+function checkAuth() {
+
+    const token =
+        localStorage.getItem("token");
+
+    if (!token) {
+        window.location.href =
+            "login.html";
+            alert("log in first and then access this page")
+    }
+}
+checkAuth()
+
 // let userData =[];
 // let filterDataPage =[];
 
@@ -14,6 +27,7 @@ let currentPage = Number(localStorage.getItem("currentPage")) || 1; //current pa
 
 
 // DISPLAY ALL USER 
+
 async function getAllUsers(userData){
     const loading = document.getElementById("loading")  
     try {
@@ -71,36 +85,48 @@ async function getAllUsers(userData){
     finally{
         loading.style.display ="none"; 
     }
+    
 }
 getAllUsers()
 
 
 
 //SEARCH SPECIFIC USER USING NAME / EMAIL
-const searchFun =()=>{
-            let filter = document.getElementById("searchInput").value.toUpperCase();//get search bar 
-            let userTable = document.getElementById("userTable");
-            let tr = document.getElementById("userTable")
-                    .getElementsByTagName("tr");
+// const searchFun =()=>{
+//             let filter = document.getElementById("searchInput").value.toUpperCase();//get search bar 
+//             let userTable = document.getElementById("userTable");
+//             let tr = document.getElementById("userTable")
+//                     .getElementsByTagName("tr");
             
-            for(var i=0;i<tr.length;i++){  
-                let tdName = tr[i].getElementsByTagName("td")[1];
-                let tdEmail = tr[i].getElementsByTagName("td")[2];
-                if(tdName||tdEmail){
-                    let Name = tdName.textContent || tdName.innerHTML;
-                    let Email = tdEmail.textContent || tdEmail.innerHTML;
+//             for(var i=0;i<tr.length;i++){  
+//                 let tdName = tr[i].getElementsByTagName("td")[1];
+//                 let tdEmail = tr[i].getElementsByTagName("td")[2];
+//                 if(tdName||tdEmail){
+//                     let Name = tdName.textContent || tdName.innerHTML;
+//                     let Email = tdEmail.textContent || tdEmail.innerHTML;
                     
-                        if(Name.toUpperCase().indexOf(filter)>-1 || Email.toUpperCase().indexOf(filter)>-1) {
-                            tr[i].style.display="";
-                            }
-                        else{
-                            tr[i].style.display="none";
-                        }
-                    }
-            }
-        } 
+//                         if(Name.toUpperCase().indexOf(filter)>-1 || Email.toUpperCase().indexOf(filter)>-1) {
+//                             tr[i].style.display="";
+//                             }
+//                         else{
+//                             tr[i].style.display="none";
+//                         }
+//                     }
+//             }
+//         } 
 
-
+function searchFun() {
+    const searchText = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+    const filteredUsers = userData.filter(user =>
+        user.name.toLowerCase().includes(searchText) ||
+        user.email.toLowerCase().includes(searchText)
+    );
+    currentPage = 1; // search result first page pasun
+    getAllUsers(filteredUsers);
+}
 //filter data through Department,State,City,BloodGroup
 
 async function FilterData() {

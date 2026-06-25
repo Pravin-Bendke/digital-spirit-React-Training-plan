@@ -97,6 +97,8 @@
 // const discount =(price,Discount)=>price-(price*Discount/100)
 // console.log(discount(1000,20));
 
+
+"Task 3: Template Literals"
 // function GenerateFullName(name,middle,surname) {
 //     return`
 //     First Name : ${name}
@@ -112,6 +114,8 @@
 //     Surname    : ${surname}`;
 // console.log(GenerateName("Pravin","Subhash","Bendke"));
 
+
+"Task 4: Student Report Generator"
 // const students = [
 //     {
 //       marks: "85",

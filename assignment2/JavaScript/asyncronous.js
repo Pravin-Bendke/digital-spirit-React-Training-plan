@@ -77,35 +77,35 @@
 // ●​ Show Data
 // ●​ Show Error
 
-async function getUsers() {
-    const status = document.getElementById("status");
-    const userList = document.getElementById("userList");
-    try {
-        status.textContent = "Loading...";//display loading status
-        userList.innerHTML=""; //When we try reload then previous data remove  
-        const response = await fetch("https://jsonplaceholder.typicode.com/users");//getting data api through 
-        if(!response.ok){ //when we failed to fetch data then error occure 
-            throw new Error ("Due to some Error in Fetching")
-        }
+// async function getUsers() {
+//     const status = document.getElementById("status");
+//     const userList = document.getElementById("userList");
+//     try {
+//         status.textContent = "Loading...";//display loading status
+//         userList.innerHTML=""; //When we try reload then previous data remove  
+//         const response = await fetch("https://jsonplaceholder.typicode.com/users");//getting data api through 
+//         if(!response.ok){ //when we failed to fetch data then error occure 
+//             throw new Error ("Due to some Error in Fetching")
+//         }
 
-        const userData = await response.json(); //fetched data conver into json format.
-        status.textContent = "Data Fetch Successfully"; // after fetch data successfull msg
-        userData.forEach(user => { //each user data we can fetch and append in innerhtml 
-            const li = document.createElement("li")
-          li.innerHTML = `
-                <strong>Name:</strong> ${user.name}<br>
-                <strong>Username:</strong> ${user.username}<br>
-                <strong>Email:</strong> ${user.email}<br>
-                <strong>Address:</strong> ${user.address.street},
-                ${user.address.city}
-                <hr>
-            `;// data storing in li innerhtml 
-            userList.appendChild(li); // appeding in userList 
-        });
-    } catch (error) {
-        status.textContent = "Error :"+error.message  // display error,due to occure in program running .
-    }
-}
+//         const userData = await response.json(); //fetched data conver into json format.
+//         status.textContent = "Data Fetch Successfully"; // after fetch data successfull msg
+//         userData.forEach(user => { //each user data we can fetch and append in innerhtml 
+//             const li = document.createElement("li")
+//           li.innerHTML = `
+//                 <strong>Name:</strong> ${user.name}<br>
+//                 <strong>Username:</strong> ${user.username}<br>
+//                 <strong>Email:</strong> ${user.email}<br>
+//                 <strong>Address:</strong> ${user.address.street},
+//                 ${user.address.city}
+//                 <hr>
+//             `;// data storing in li innerhtml 
+//             userList.appendChild(li); // appeding in userList 
+//         });
+//     } catch (error) {
+//         status.textContent = "Error :"+error.message  // display error,due to occure in program running .
+//     }
+// }
 
 
 // 1.​ Why is async/await preferred?
@@ -117,3 +117,4 @@ async function getUsers() {
 
 // 3.​ Why should API calls use try/catch?
     // handle the errors ,unexpected failures,prevent the application crashing,show meaningfull errors ,help to tell why this problem occure.
+

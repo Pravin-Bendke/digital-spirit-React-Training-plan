@@ -57,6 +57,7 @@ const applyId = users.map((user,index)=>({
     name : user
 }
 ))
+
 console.log(applyId);
 // {Id: 1, name: 'John'}
 // {Id: 2, name: 'Sara'}

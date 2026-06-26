@@ -121,6 +121,7 @@
 //         `);
 //     }
 // );
+
 "Task 2: Array Destructuring"
 
 const language =["React","JavaScript","HTML","CSS"];
